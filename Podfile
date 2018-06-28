@@ -7,6 +7,7 @@ target 'MuV' do
 
   # Pods for MuV
   pod 'AFNetworking'
+  pod 'MBProgressHUD', '~> 1.1.0'
 
 
   target 'MuVTests' do

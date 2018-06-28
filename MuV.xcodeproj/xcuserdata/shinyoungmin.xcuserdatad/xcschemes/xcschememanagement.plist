@@ -7,7 +7,25 @@
 		<key>MuV.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>85B7109420E4099C0007FA17</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>85B710AC20E4099D0007FA17</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>85B710B720E4099D0007FA17</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
