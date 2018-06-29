@@ -16,8 +16,8 @@ The following **required** functionality is complete:
 The following **optional** features are implemented:
 
 - [x] User sees an error message when there's a networking error.
-- [ ] Movies are displayed using a CollectionView instead of a TableView.
-- [ ] User can search for a movie.
+- [x] Movies are displayed using a CollectionView instead of a TableView.
+- [x] User can search for a movie.
 - [ ] All images fade in as they are loading.
 - [ ] User can view the large movie poster by tapping on a cell.
 - [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
@@ -28,17 +28,18 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
+- [x] Can watch trailer when large poster is pressed in DetailsViewController
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Add a way to save previous users preferences so that similar searches show up when they first open the app   
+2. Add icons depending on the rating
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/T1pMWjU.gifv' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -54,7 +55,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 ## License
 
-    Copyright [2018] [name of copyright owner]
+    Copyright [2018] [Youngmin Shin]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
