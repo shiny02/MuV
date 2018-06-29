@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *posterView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *blurbLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -43,6 +44,9 @@
     [self.titleLabel sizeToFit];
     [self.blurbLabel sizeToFit];
     
+    
+    CGFloat maxHeight = self.blurbLabel.frame.origin.y + self.blurbLabel.frame.size.height + 30;
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, maxHeight);
     
 }
 

@@ -88,6 +88,7 @@
             {
                 NSLog(@"%@", movie[@"title"]);
             }
+            
             self.data = self.movies;
             
             self.filteredData = self.data;
@@ -111,13 +112,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.movies.count;
+    return self.filteredData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell" forIndexPath:indexPath];
     
-    NSDictionary * movie = self.movies[indexPath.row];
+    NSDictionary * movie = self.filteredData[indexPath.row];
     
     cell.titleLabel.text = movie[@"title"];
     cell.blurbLabel.text = movie[@"overview"];
@@ -138,8 +139,8 @@
     
     if (searchText.length != 0) {
         
-        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
-            return [evaluatedObject containsString:searchText];
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSDictionary *evaluatedObject, NSDictionary *bindings) {
+            return [evaluatedObject[@"title"] containsString:searchText];
         }];
         self.filteredData = [self.data filteredArrayUsingPredicate:predicate];
         
@@ -163,7 +164,7 @@
     UITableViewCell * tappedCell = sender;
     NSIndexPath * indexPath = [self.tableView indexPathForCell:tappedCell];
     
-    NSDictionary * movie = self.movies[indexPath.row];
+    NSDictionary * movie = self.filteredData[indexPath.row];
     
     DetailsViewController * detailsViewController = [segue destinationViewController];
     detailsViewController.movie = movie; 

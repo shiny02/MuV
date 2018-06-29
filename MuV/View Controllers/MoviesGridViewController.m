@@ -11,10 +11,13 @@
 #import "UIImageView+AFNetworking.h"
 #import "DetailsViewController.h"
 
-@interface MoviesGridViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface MoviesGridViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 
 @property(strong, nonatomic) NSArray * movies;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+//@property (strong, nonatomic) IBOutlet UISearchBar *movieSearch;
 
 @end
 
@@ -28,6 +31,11 @@
     
     [self fetchMovies];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    
+    [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
+    
+    [self.collectionView insertSubview:self.refreshControl atIndex:0];
     
     UICollectionViewFlowLayout* layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
     
@@ -79,6 +87,7 @@
             
             
         }
+        [self.refreshControl endRefreshing];
         
     }];
     [task resume];

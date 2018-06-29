@@ -10,6 +10,7 @@
 #import <WebKit/WebKit.h>
 @interface TrailerViewController ()
 @property (weak, nonatomic) IBOutlet WKWebView *trailerView;
+@property (weak, nonatomic) IBOutlet UIButton *goBack;
 @end
 
 @implementation TrailerViewController
@@ -76,6 +77,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)onGoBackTap:(UIButton *)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:^(void){NSLog(@"Goodbye");}];
+    
 }
 
 /*
