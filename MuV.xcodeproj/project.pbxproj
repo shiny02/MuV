@@ -19,6 +19,10 @@
 		85B710BD20E4099D0007FA17 /* MuVUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B710BC20E4099D0007FA17 /* MuVUITests.m */; };
 		85FFCB7C20E5573D00EF5ED1 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FFCB7B20E5573D00EF5ED1 /* MovieCell.m */; };
 		85FFCB7F20E562F700EF5ED1 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FFCB7E20E562F700EF5ED1 /* DetailsViewController.m */; };
+		85FFCB8220E596E900EF5ED1 /* MoviesGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FFCB8120E596E900EF5ED1 /* MoviesGridViewController.m */; };
+		85FFCB8520E599AA00EF5ED1 /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FFCB8420E599AA00EF5ED1 /* MovieCollectionCell.m */; };
+		85FFCB8820E60C8900EF5ED1 /* TrailerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FFCB8720E60C8900EF5ED1 /* TrailerViewController.m */; };
+		85FFCB8A20E60E5100EF5ED1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85FFCB8920E60E5100EF5ED1 /* WebKit.framework */; };
 		F8F9B5BA8BEDE3441D2AF540 /* libPods-MuVTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9E1F5DD7B42A5F5D0800D0 /* libPods-MuVTests.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +70,13 @@
 		85FFCB7B20E5573D00EF5ED1 /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		85FFCB7D20E562F700EF5ED1 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		85FFCB7E20E562F700EF5ED1 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		85FFCB8020E596E900EF5ED1 /* MoviesGridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviesGridViewController.h; sourceTree = "<group>"; };
+		85FFCB8120E596E900EF5ED1 /* MoviesGridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesGridViewController.m; sourceTree = "<group>"; };
+		85FFCB8320E599AA00EF5ED1 /* MovieCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCollectionCell.h; sourceTree = "<group>"; };
+		85FFCB8420E599AA00EF5ED1 /* MovieCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionCell.m; sourceTree = "<group>"; };
+		85FFCB8620E60C8900EF5ED1 /* TrailerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrailerViewController.h; sourceTree = "<group>"; };
+		85FFCB8720E60C8900EF5ED1 /* TrailerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrailerViewController.m; sourceTree = "<group>"; };
+		85FFCB8920E60E5100EF5ED1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		8A9AC32195574BFE1CC95F4A /* Pods-MuVUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuVUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MuVUITests/Pods-MuVUITests.release.xcconfig"; sourceTree = "<group>"; };
 		97BEC5E45A69E6552336D84B /* Pods-MuV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MuV/Pods-MuV.debug.xcconfig"; sourceTree = "<group>"; };
 		C21FB344B930B62D8C7B3CEA /* Pods-MuVUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuVUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MuVUITests/Pods-MuVUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85FFCB8A20E60E5100EF5ED1 /* WebKit.framework in Frameworks */,
 				209C4C6D972E0D2CA7C4DF96 /* libPods-MuV.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,6 +114,7 @@
 		3699BB669213E00A4D23BB4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				85FFCB8920E60E5100EF5ED1 /* WebKit.framework */,
 				789DB036B5D7CE3DF76A1386 /* libPods-MuV.a */,
 				6C9E1F5DD7B42A5F5D0800D0 /* libPods-MuVTests.a */,
 				5F76DBBBA48C7CF047B2A72C /* libPods-MuVUITests.a */,
@@ -129,6 +142,10 @@
 				853D84B320E45FAB006FEC63 /* MoviesViewController.m */,
 				85FFCB7D20E562F700EF5ED1 /* DetailsViewController.h */,
 				85FFCB7E20E562F700EF5ED1 /* DetailsViewController.m */,
+				85FFCB8020E596E900EF5ED1 /* MoviesGridViewController.h */,
+				85FFCB8120E596E900EF5ED1 /* MoviesGridViewController.m */,
+				85FFCB8620E60C8900EF5ED1 /* TrailerViewController.h */,
+				85FFCB8720E60C8900EF5ED1 /* TrailerViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -138,6 +155,8 @@
 			children = (
 				85FFCB7A20E5573D00EF5ED1 /* MovieCell.h */,
 				85FFCB7B20E5573D00EF5ED1 /* MovieCell.m */,
+				85FFCB8320E599AA00EF5ED1 /* MovieCollectionCell.h */,
+				85FFCB8420E599AA00EF5ED1 /* MovieCollectionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,8 +418,11 @@
 				85B710A820E4099D0007FA17 /* main.m in Sources */,
 				85FFCB7F20E562F700EF5ED1 /* DetailsViewController.m in Sources */,
 				85B7109A20E4099C0007FA17 /* AppDelegate.m in Sources */,
+				85FFCB8520E599AA00EF5ED1 /* MovieCollectionCell.m in Sources */,
+				85FFCB8820E60C8900EF5ED1 /* TrailerViewController.m in Sources */,
 				85FFCB7C20E5573D00EF5ED1 /* MovieCell.m in Sources */,
 				853D84B420E45FAB006FEC63 /* MoviesViewController.m in Sources */,
+				85FFCB8220E596E900EF5ED1 /* MoviesGridViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

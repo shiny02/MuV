@@ -10,14 +10,19 @@
 #import "MovieCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "DetailsViewController.h"
-#import "MBProgressHUD.h"
+//#import "MBProgressHUD.h"
 
-@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property(strong, nonatomic) NSArray * movies;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UISearchBar *movieSearch;
+
+@property (strong, nonatomic) NSArray *data;
+
+@property (strong, nonatomic) NSArray *filteredData;
 
 @end
 
@@ -29,12 +34,15 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
+    self.movieSearch.delegate = self;
+
     [self.activityIndicator startAnimating];
     
    
-    
+
     [self fetchMovies];
+    
+
     self.refreshControl = [[UIRefreshControl alloc] init];
     
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
@@ -43,6 +51,9 @@
     
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     
+
+    
+   
     
 }
 
@@ -77,13 +88,15 @@
             {
                 NSLog(@"%@", movie[@"title"]);
             }
+            self.data = self.movies;
             
+            self.filteredData = self.data;
             [self.tableView reloadData];
             [self.activityIndicator stopAnimating];
 
 
         }
-        
+ 
         [self.refreshControl endRefreshing];
     }];
     [task resume];
@@ -121,6 +134,25 @@
     
 }
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if (searchText.length != 0) {
+        
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedObject, NSDictionary *bindings) {
+            return [evaluatedObject containsString:searchText];
+        }];
+        self.filteredData = [self.data filteredArrayUsingPredicate:predicate];
+        
+        NSLog(@"%@", self.filteredData);
+        
+    }
+    else {
+        self.filteredData = self.data;
+    }
+    
+    [self.tableView reloadData];
+    
+}
 
 #pragma mark - Navigation
 
