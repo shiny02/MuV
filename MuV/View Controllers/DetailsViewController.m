@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *blurbLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 
 @end
 
@@ -40,6 +41,8 @@
     
     self.titleLabel.text = self.movie[@"title"];
     self.blurbLabel.text = self.movie[@"overview"];
+    NSString * rating = [NSString stringWithFormat:@"%@", self.movie[@"vote_average"]];
+    self.ratingLabel.text = [@"Rating: " stringByAppendingString: rating];
     
     [self.titleLabel sizeToFit];
     [self.blurbLabel sizeToFit];

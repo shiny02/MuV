@@ -155,6 +155,24 @@
     
 }
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    self.movieSearch.showsCancelButton = YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    self.movieSearch.showsCancelButton = NO;
+    self.movieSearch.text = @"";
+    self.filteredData = self.movies;
+    [self.tableView reloadData];
+    [self.movieSearch resignFirstResponder]; 
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

@@ -17,7 +17,10 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
-//@property (strong, nonatomic) IBOutlet UISearchBar *movieSearch;
+@property (strong, nonatomic) IBOutlet UISearchBar *movieSearch;
+@property (strong, nonatomic) NSArray *data;
+
+@property (strong, nonatomic) NSArray *filteredData;
 
 @end
 
@@ -28,6 +31,7 @@
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    self.movieSearch.delegate = self;
     
     [self fetchMovies];
     
@@ -81,6 +85,12 @@
             
             
             self.movies = dataDictionary[@"results"];
+            
+            
+            self.data = self.movies;
+            
+            self.filteredData = self.data;
+            
             [self.collectionView reloadData];
             
 
@@ -104,7 +114,7 @@
     
     MovieCollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
     
-    NSDictionary * movie = self.movies[indexPath.item]; 
+    NSDictionary * movie = self.filteredData[indexPath.item];
     
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = movie[@"poster_path"];
@@ -118,9 +128,42 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.movies.count; 
+    return self.filteredData.count;
 }
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if (searchText.length != 0) {
+        
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSDictionary *evaluatedObject, NSDictionary *bindings) {
+            return [evaluatedObject[@"title"] containsString:searchText];
+        }];
+        self.filteredData = [self.data filteredArrayUsingPredicate:predicate];
+        
+        NSLog(@"%@", self.filteredData);
+        
+    }
+    else {
+        self.filteredData = self.data;
+    }
+    
+    [self.collectionView reloadData];
+    
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    self.movieSearch.showsCancelButton = YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    self.movieSearch.showsCancelButton = NO;
+    self.movieSearch.text = @"";
+    self.filteredData = self.movies;
+    [self.collectionView reloadData];
+    [self.movieSearch resignFirstResponder];
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -131,7 +174,7 @@
     UICollectionViewCell * tappedCell = sender;
     NSIndexPath * indexPath = [self.collectionView indexPathForCell:tappedCell];
     
-    NSDictionary * movie = self.movies[indexPath.item];
+    NSDictionary * movie = self.filteredData[indexPath.item];
     
     DetailsViewController * detailsViewController = [segue destinationViewController];
     detailsViewController.movie = movie;

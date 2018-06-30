@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MuV-->
+        <!--MuV List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MoviesViewController" sceneMemberID="viewController">
@@ -79,7 +79,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="MuV" id="lye-oY-uGp"/>
+                    <navigationItem key="navigationItem" title="MuV List" id="lye-oY-uGp"/>
                     <connections>
                         <outlet property="activityIndicator" destination="WO5-p3-V5p" id="Mvd-Xd-Nph"/>
                         <outlet property="movieSearch" destination="JwI-SK-0kZ" id="tND-dF-qx6"/>
@@ -135,6 +135,13 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ody-BY-8r6">
+                                        <rect key="frame" x="143" y="287" width="202" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <gestureRecognizers/>
                             </scrollView>
@@ -146,6 +153,7 @@
                         <outlet property="backdropView" destination="eDD-hO-QDi" id="4gI-CL-4vH"/>
                         <outlet property="blurbLabel" destination="xfd-am-Oql" id="TBi-iF-157"/>
                         <outlet property="posterView" destination="Kwt-lM-aDX" id="O7b-Fo-tOX"/>
+                        <outlet property="ratingLabel" destination="Ody-BY-8r6" id="psf-3O-yjV"/>
                         <outlet property="scrollView" destination="6Jn-jI-XSD" id="9ft-hZ-7Yw"/>
                         <outlet property="titleLabel" destination="f3O-HC-TL7" id="qJS-wF-fwv"/>
                     </connections>
@@ -237,7 +245,7 @@
             </objects>
             <point key="canvasLocation" x="1455" y="32"/>
         </scene>
-        <!--Movies Grid View Controller-->
+        <!--MuV Grid-->
         <scene sceneID="NEI-BS-f4J">
             <objects>
                 <viewController id="jzz-ie-JCs" customClass="MoviesGridViewController" sceneMemberID="viewController">
@@ -250,7 +258,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NX4-Qq-kdu">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="QW5-qC-7Fy">
@@ -281,13 +289,19 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALt-s3-Pzh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="eQv-Tz-OfB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fbj-Up-bTj"/>
+                    <navigationItem key="navigationItem" title="MuV Grid" id="fbj-Up-bTj"/>
                     <connections>
                         <outlet property="collectionView" destination="NX4-Qq-kdu" id="nPe-mz-Thx"/>
+                        <outlet property="movieSearch" destination="ALt-s3-Pzh" id="ITu-vc-Oi3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gcl-Af-Qpx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -321,6 +335,6 @@
         <image name="projector_tabbar_item" width="21" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UdW-go-9qP"/>
+        <segue reference="KAT-UU-bfw"/>
     </inferredMetricsTieBreakers>
 </document>
